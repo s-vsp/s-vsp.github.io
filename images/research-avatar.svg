@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Scanline eye avatar</title>
+  <desc id="desc">Dark circular eye rendered with scanlines and digital halftone texture.</desc>
+  <defs>
+    <clipPath id="disc">
+      <circle cx="256" cy="256" r="216"/>
+    </clipPath>
+    <pattern id="scan" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#0b1016"/>
+      <rect width="8" height="1.4" fill="#d69a38" opacity=".55"/>
+      <rect y="3" width="8" height="1" fill="#2d6cdf" opacity=".45"/>
+      <rect x="1" width="1.2" height="8" fill="#ffffff" opacity=".14"/>
+      <rect x="5" width=".9" height="8" fill="#12a594" opacity=".28"/>
+    </pattern>
+    <filter id="roughen">
+      <feTurbulence type="fractalNoise" baseFrequency=".95" numOctaves="2" seed="7" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0"/>
+      <feComponentTransfer>
+        <feFuncA type="table" tableValues="0 .42"/>
+      </feComponentTransfer>
+      <feBlend in="SourceGraphic" mode="multiply"/>
+    </filter>
+    <radialGradient id="iris" cx="50%" cy="48%" r="58%">
+      <stop offset="0" stop-color="#d6e6f8"/>
+      <stop offset=".32" stop-color="#49657c"/>
+      <stop offset=".72" stop-color="#151e27"/>
+      <stop offset="1" stop-color="#020408"/>
+    </radialGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="#0b1016"/>
+  <g clip-path="url(#disc)">
+    <rect x="34" y="34" width="444" height="444" fill="url(#scan)"/>
+    <path d="M34 260c67-82 140-123 222-123 83 0 157 41 222 123-65 77-139 116-222 116-82 0-155-39-222-116z" fill="#111820" opacity=".86"/>
+    <path d="M55 260c61-65 128-98 201-98 75 0 142 33 201 98-59 58-126 87-201 87-73 0-140-29-201-87z" fill="#263849" opacity=".72" filter="url(#roughen)"/>
+    <path d="M65 242c62-84 128-124 200-121 70 2 132 43 186 121-67-36-133-54-198-54-64 0-127 18-188 54z" fill="#030609" opacity=".95"/>
+    <path d="M63 286c68 35 133 52 195 50 61-1 125-18 191-50-55 67-119 102-193 104-73 2-138-33-193-104z" fill="#030609" opacity=".92"/>
+    <circle cx="256" cy="258" r="82" fill="url(#iris)" opacity=".9"/>
+    <circle cx="256" cy="258" r="38" fill="#010205"/>
+    <ellipse cx="270" cy="238" rx="18" ry="10" fill="#d6e6f8" opacity=".55"/>
+    <rect x="34" y="34" width="444" height="444" fill="url(#scan)" opacity=".78"/>
+    <path d="M0 125h512M0 184h512M0 311h512M0 379h512" stroke="#020408" stroke-width="9" opacity=".45"/>
+    <path d="M147 34v444M329 34v444M402 34v444" stroke="#d69a38" stroke-width="2" opacity=".45"/>
+  </g>
+  <circle cx="256" cy="256" r="216" fill="none" stroke="#2a333d" stroke-width="10"/>
+  <circle cx="256" cy="256" r="221" fill="none" stroke="#05080c" stroke-width="8"/>
+</svg>
